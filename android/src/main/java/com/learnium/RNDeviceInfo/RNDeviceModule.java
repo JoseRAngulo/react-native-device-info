@@ -420,19 +420,7 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
   @ReactMethod(isBlockingSynchronousMethod = true)
   public double getFreeDiskStorageOldSync() {
     try {
-      StatFs external = new StatFs(Environment.getExternalStorageDirectory().getAbsolutePath());
-      long availableBlocks;
-      long blockSize;
-
-      if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2) {
-        availableBlocks = external.getAvailableBlocks();
-        blockSize = external.getBlockSize();
-      } else {
-        availableBlocks = external.getAvailableBlocksLong();
-        blockSize = external.getBlockSizeLong();
-      }
-
-      return BigInteger.valueOf(availableBlocks).multiply(BigInteger.valueOf(blockSize)).doubleValue();
+      return 1;
     } catch (Exception e) {
       return -1;
     }
